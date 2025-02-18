@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄色仓库 - 轻量化H5应用平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #FFF9E6;
+            color: #333;
+            padding-top: 60px;
+        }
+        .header {
+            background: #FFD700;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .menu-toggle {
+            display: none;
+        }
+        .menu-icon {
+            display: block;
+            width: 24px;
+            height: 18px;
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #333;
+            margin-bottom: 4px;
+            border-radius: 1.5px;
+        }
+        nav ul {
+            list-style: none;
+            display: none;
+            background: #FFD700;
+            margin-top: 10px;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+        nav ul li {
+            text-align: center;
+            padding: 8px 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        .menu-toggle:checked ~ ul {
+            display: block;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .slideshow {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slide img {
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .app-info {
+            text-align: center;
+        }
+        .app-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .app-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .app-meta {
+            margin-bottom: 20px;
+        }
+        .meta-item {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #FFD700;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .features-section {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .section-title {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #8B6914;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 5px;
+        }
+        .feature-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .footer-section {
+            margin-bottom: 20px;
+        }
+        .footer-section h3 {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">黄色仓库</a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#docs">使用文档</a></li>
+                <li><a href="#changelog">更新日志</a></li>
+                <li><a href="#feedback">意见反馈</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="screenshot1.png" alt="应用截图1">
+            </div>
+            <div class="slide">
+                <img src="screenshot2.png" alt="应用截图2">
+            </div>
+            <div class="slide">
+                <img src="screenshot3.png" alt="应用截图3">
+            </div>
+        </div>
+        <div class="app-info">
+            <h1 class="app-title">黄色仓库工具箱</h1>
+            <p class="app-description">轻松享受网页端应用（H5）的便捷体验。</p>
+            <div class="app-meta">
+                <div class="meta-item">软件版本：2025.01正式版</div>
+                <div class="meta-item">发布日期：2025年2月18日</div>
+                <div class="meta-item">程序大小：14MB（安装包）</div>
+            </div>
+            <a href="hsck_v1.1.3.apk" class="download-btn" download="黄色仓库.apk">立即下载</a>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <h2 class="section-title">程序简介</h2>
+        <p class="feature-text">
+            还在为手机APP占用内存大、广告弹窗多而烦恼吗？黄色仓库来拯救你的手机空间！由福州倍司网络科技有限公司开发，这款APP让你轻松享受网页端应用（H5）的便捷体验。
+        </p>
+        <p class="feature-text">
+            专业：专注于收集各种网页应用、评分、测试工具，常见工具均有收录。
+        </p>
+        <p class="feature-text">
+            纯净：在任何时候都不会有任何广告弹窗，也不会收集用户信息。
+        </p>
+        <p class="feature-text">
+            绿色：提供H5应用入口，无需安装，即开即用，解压即可使用。
+        </p>
+        <p class="feature-text">
+            开放：所有内容均可免费下载使用，并提供完整的开发者SDK，让开发更轻松。
+        </p>
+    </div>
+
+    <footer>
+        <div class="footer-section">
+            <h3>联系我们</h3>
+            <ul>
+                <li>电话：400-XXX-XXXX</li>
+                <li>邮箱：support@huangse.com</li>
+                <li>地址：福州市XX区XX街道</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 福州倍司网络科技有限公司 版权所有</p>
+            <p>闽ICP备2024077327号-2 | 闽公网安备35010302000254号</p>
+        </div>
+    </footer>
+
+    <script>
+        // 设备检测函数
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 如果不是移动设备且当前页面不是index.html，则跳转
+        if (!isMobileDevice() && !window.location.href.includes('index.html')) {
+            window.location.href = 'index.html';
+        }
+
+        // 幻灯片自动播放
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html
